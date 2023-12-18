@@ -1,6 +1,7 @@
 function encode(Text, ShiftNum)
 {
      let text = document.getElementById(Text).value
+     text =  text.toLowerCase()
      let shiftNum = document.getElementById(ShiftNum).innerText
      shiftNum = parseInt(shiftNum)
      let outPut = []
@@ -52,6 +53,7 @@ function encode(Text, ShiftNum)
 function decode(Text, ShiftNum)
 {
      let text = document.getElementById(Text).value
+     text =  text.toLowerCase()
      let shiftNum = document.getElementById(ShiftNum).innerText
      shiftNum = parseInt(shiftNum)
      let outPut = []
