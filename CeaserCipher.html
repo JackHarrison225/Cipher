@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Caesar Cipher</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" />
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+
+     <div class="w-2/4 bg-white border-2 p-4 rounded-md shadow-md flex flex-col">
+
+          <!-- Section 1: Encode/Decode Buttons -->
+          <section id="code-label" class="flex justify-between mb-8">
+               <button class="flex-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none" onclick="encode('input-text', 'shift-number')">Encode</button>
+               <button class="flex-1 px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none" onclick="decode('input-text', 'shift-number')">Decode</button>
+          </section>
+
+          <!-- Section 2: Shift Number and Buttons -->
+          <section class="flex justify-center items-center gap-12 mb-8">
+               <h3 id="shift-number" class="text-2xl font-bold mr-4">4</h3>
+               <div class="flex items-center">
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded-md mr-2 focus:outline-none" onclick="changeShiftNum('+')">+</button>
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none" onclick="changeShiftNum('-')">-</button>
+               </div>
+          </section>
+
+          <!-- Section 3: Text Input and Display -->
+          <section id="text-display" class="flex flex-col flex-grow">
+               <!-- User inputs what they want to be encoded or decoded -->
+               <form id="user-text-input" class="mb-4 flex-grow">
+                    <label for="input-text" class="block text-lg font-bold">Enter Text</label>
+                    <textarea id="input-text" name="userText" class="w-full p-2 border rounded-md flex-grow"></textarea>
+               </form>
+
+               <div class="bg-blue-500 text-white p-4 rounded-md flex-grow">
+                    <h3 id="coded-reply" class="text-lg font-bold">Replied Text</h3>
+                    <!-- Display the encoded/decoded text -->
+                </div>
+          </section>
+     </div>
+</body>
+<script src="cipher.js"></script>
+</html>
