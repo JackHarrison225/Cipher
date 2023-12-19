@@ -1,8 +1,8 @@
+//testable copy of the cipher
 function encode(Text, ShiftNum, code)
 {
-     let text = document.getElementById(Text).value
-     let shiftNum = document.getElementById(ShiftNum).innerText
-     shiftNum = parseInt(shiftNum)
+     let text = Text
+     let shiftNum = parseInt(ShiftNum)
      shiftNum = shiftNum%26
      let outPut = []
      let temp
@@ -43,7 +43,8 @@ function encode(Text, ShiftNum, code)
                          newWord.push((alphabetArrayShifted[j]).toUpperCase())
                          break
                     }
-                    else if((/[\W_]/).test(wordLetters[x]) == true){
+                    else if((/[\W_]/).test(wordLetters[x]) == true)
+                    {
                          newWord.push(wordLetters[x])
                          break
                     }
@@ -87,23 +88,12 @@ function encode(Text, ShiftNum, code)
      }
      outPut = outPut.join(" ")
 
-     document.getElementById("coded-reply").innerText = outPut
+     console.log(outPut)
+     return outPut
 }
+encode("abcde", "2", true)
+encode("cdeab", "2", false)
 
 
-function changeShiftNum(Value)
-{
-     shiftNum = document.getElementById("shift-number").innerText
-     shiftNum = Number(shiftNum)
-     switch(Value){
-          case "+":
-               shiftNum ++
-               document.getElementById("shift-number").innerText = shiftNum
-               break;
-          case "-":
-               shiftNum --
-               document.getElementById("shift-number").innerText = shiftNum
-               break;
-     }
-}
 
+module.exports = encode;
