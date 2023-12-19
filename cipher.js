@@ -52,6 +52,7 @@ function encode(Text, ShiftNum, code)
                          if(code == false)
                          {
                               let NewNum = (parseInt(wordLetters[x]) + parseInt(shiftNum))
+<<<<<<< HEAD
 
                               console.log(`Initial New Number: ${NewNum}\nText Letter: ${wordLetters[x]}\nShift Number: ${parseInt(shiftNum)}`)
 
@@ -64,17 +65,26 @@ function encode(Text, ShiftNum, code)
                               console.log(`New Number: ${NewNum}\n`)
 
 
+=======
+                              if(NewNum > 9) NewNum -= 10
+                              else if(NewNum < 0) NewNum += 10
+>>>>>>> 660c791dade84f1d759939792a6a6d151687d20c
                               newWord.push(NewNum)
                               break
                          }
                          if(code == true)
                          { 
                               let NewNum = (parseInt(wordLetters[x]) - parseInt(shiftNum))
+<<<<<<< HEAD
                               if(NewNum > 9 && NewNum < 20) NewNum -= 10
                               else if(NewNum < 0 && NewNum > -11) NewNum += 10
                               else if(NewNum < -9 && NewNum > -20) NewNum += 20
                               else if(NewNum < -19) NewNum += 30
                               else if(NewNum > 19) NewNum -= 20
+=======
+                              if(NewNum > 9) NewNum -= 10
+                              else if(NewNum < 0) NewNum += 10
+>>>>>>> 660c791dade84f1d759939792a6a6d151687d20c
                               newWord.push(NewNum)
                               break
                          }
