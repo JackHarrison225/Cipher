@@ -1,17 +1,27 @@
-function encode(Text, ShiftNum)
+function encode(Text, ShiftNum, code)
 {
      let text = document.getElementById(Text).value
      let shiftNum = document.getElementById(ShiftNum).innerText
      shiftNum = parseInt(shiftNum)
      let outPut = []
+     let temp
+     let temp2
 
-     const aplhabetArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+     const alphabetArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
      
-     let temp = aplhabetArray.slice(-shiftNum) // returns x y z
-     let temp2 = aplhabetArray.slice(0, -shiftNum) // return a - w
+     if(code == true)
+     {
+          temp = alphabetArray.slice(-shiftNum) // returns x y z
+          temp2 = alphabetArray.slice(0, -shiftNum)// return a - w
+     } 
+     else if(code == false)
+     {
+          temp = alphabetArray.slice(+shiftNum) // returns x y z
+          temp2 = alphabetArray.slice(0, +shiftNum)// return a - w
+     } 
+     
      temp2.unshift(temp) 
-     aplhabetArrayShifted = temp2.flat()
-     //console.log(aplhabetArrayShifted)
+     alphabetArrayShifted = temp2.flat()
 
      let wordsArr = text.split(" ")
      for(let i = 0; i < wordsArr.length; i++){
@@ -20,16 +30,16 @@ function encode(Text, ShiftNum)
           let newWord = []
           for(x in wordLetters)
           {
-               for(j in aplhabetArray)
+               for(j in alphabetArray)
                {
-                    if(aplhabetArray[j] == wordLetters[x])
+                    if(alphabetArray[j] == wordLetters[x])
                     {
-                         newWord.push(aplhabetArrayShifted[j])
+                         newWord.push(alphabetArrayShifted[j])
                          break
                     }
-                    else if(aplhabetArray[j] == (wordLetters[x]).toUpperCase())
+                    else if((alphabetArray[j]).toUpperCase() == wordLetters[x])
                     {
-                         newWord.push((aplhabetArrayShifted[j]).toUpperCase())
+                         newWord.push((alphabetArrayShifted[j]).toUpperCase())
                          break
                     }
                     else if(wordLetters[x] == "."){
@@ -54,61 +64,6 @@ function encode(Text, ShiftNum)
      document.getElementById("coded-reply").innerText = outPut
 }
 
-function decode(Text, ShiftNum)
-{
-     let text = document.getElementById(Text).value
-     let shiftNum = document.getElementById(ShiftNum).innerText
-     shiftNum = parseInt(shiftNum)
-     let outPut = []
-
-     const aplhabetArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-     
-     let temp = aplhabetArray.slice(+shiftNum) // returns x y z
-     let temp2 = aplhabetArray.slice(0, +shiftNum) // return a - w
-     temp2.unshift(temp) 
-     aplhabetArrayShifted = temp2.flat()
-     //console.log(aplhabetArrayShifted)
-
-     let wordsArr = text.split(" ")
-     for(let i = 0; i < wordsArr.length; i++){
-          //each letter of word
-          let wordLetters = wordsArr[i].split("")
-          let newWord = []
-          for(x in wordLetters)
-          {
-               for(j in aplhabetArray)
-               {
-                    if(aplhabetArray[j] == wordLetters[x])
-                    {
-                         newWord.push(aplhabetArrayShifted[j])
-                         break
-                    }
-                         else if(aplhabetArray[j] == wordLetters[x].toUpperCase())
-                    {
-                         newWord.push((aplhabetArrayShifted[j]).toUpperCase())
-                         break
-                    }
-                    else if(wordLetters[x] == "."){
-                         newWord.push(".")
-                         break
-                    }
-                    else if(wordLetters[x] == "?"){
-                         newWord.push("?")
-                         break
-                    }
-                    else if(wordLetters[x] == "!"){
-                         newWord.push("!")
-                         break
-                    }
-               }
-          }
-          newWord = newWord.join("")
-          outPut.push(newWord)
-     }
-     outPut = outPut.join(" ")
-
-     document.getElementById("coded-reply").innerText = outPut
-}
 
 function changeShiftNum(Value)
 {
@@ -125,29 +80,3 @@ function changeShiftNum(Value)
                break;
      }
 }
-// Original Alphabet
-// Inputs ABC
-
-// func -> Get index ABC 
-// get shiftNumb [0,1,2]
-
-
-// Create alphabet -> Shifted alphabet
-// 012 inside shifted alphabet
-// if abc[c] == aplhbet[i] shift[i]
-
-
-// Original Alphabet
-// A B C D E
-// 1 2 3 4 5
-
-// Original Index
-// C E
-// 3 5
-
-// SHIFTED ALPHABET
-// C D E A B
-// 1 2 3 4 5
-
-// Use Original Index to ouput shifted index
-// E B
