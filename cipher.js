@@ -42,17 +42,22 @@ function encode(Text, ShiftNum, code)
                          newWord.push((alphabetArrayShifted[j]).toUpperCase())
                          break
                     }
-                    else if(wordLetters[x] == "."){
-                         newWord.push(".")
+                    else if((/[\W_]/).test(wordLetters[x]) == true){
+                         newWord.push(wordLetters[x])
                          break
                     }
-                    else if(wordLetters[x] == "?"){
-                         newWord.push("?")
-                         break
-                    }
-                    else if(wordLetters[x] == "!"){
-                         newWord.push("!")
-                         break
+                    else if((/[0-9]/).test(wordLetters[x]) == true){
+                         if(code == false){
+                              let NewNum = (parseInt(wordLetters[x]) + parseInt(ShiftNum))
+                              newWord.push(NewNum)
+                              break
+                         }
+                         if(code == true){
+                              let NewNum = (parseInt(wordLetters[x]) - parseInt(ShiftNum))
+                              newWord.push(NewNum)
+                              break
+                         }
+                         
                     }
                }
           }
