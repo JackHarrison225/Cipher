@@ -48,12 +48,16 @@ function encode(Text, ShiftNum, code)
                     }
                     else if((/[0-9]/).test(wordLetters[x]) == true){
                          if(code == false){
-                              let NewNum = (parseInt(wordLetters[x]) + parseInt(ShiftNum))
+                              let NewNum = (parseInt(wordLetters[x]) + parseInt(shiftNum))
+                              if(NewNum > 9)NewNum -= 9
+                              else if(NewNum < 0)NewNum += 9
                               newWord.push(NewNum)
                               break
                          }
-                         if(code == true){
-                              let NewNum = (parseInt(wordLetters[x]) - parseInt(ShiftNum))
+                         if(code == true){ 
+                              let NewNum = (parseInt(wordLetters[x]) - parseInt(shiftNum))
+                              if(NewNum > 9) NewNum -= 9
+                              else if(NewNum < 0) NewNum += 9
                               newWord.push(NewNum)
                               break
                          }
