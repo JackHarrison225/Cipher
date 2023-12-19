@@ -27,9 +27,9 @@ function encode(Text, ShiftNum)
                          newWord.push(aplhabetArrayShifted[j])
                          break
                     }
-                    else if(aplhabetArray[j] == wordLetters[x].toUpperCase)
+                    else if(aplhabetArray[j] == wordLetters[x].toUpperCase())
                     {
-                         newWord.push(aplhabetArrayShifted[j].toUpperCase)
+                         newWord.push(aplhabetArrayShifted[j].toUpperCase())
                          break
                     }
                     else if(wordLetters[x] == "."){
@@ -57,7 +57,6 @@ function encode(Text, ShiftNum)
 function decode(Text, ShiftNum)
 {
      let text = document.getElementById(Text).value
-     text =  text.toLowerCase()
      let shiftNum = document.getElementById(ShiftNum).innerText
      shiftNum = parseInt(shiftNum)
      let outPut = []
@@ -82,6 +81,11 @@ function decode(Text, ShiftNum)
                     if(aplhabetArray[j] == wordLetters[x])
                     {
                          newWord.push(aplhabetArrayShifted[j])
+                         break
+                    }
+                         else if(aplhabetArray[j] == wordLetters[x].toUpperCase())
+                    {
+                         newWord.push(aplhabetArrayShifted[j].toUpperCase())
                          break
                     }
                     else if(wordLetters[x] == "."){
