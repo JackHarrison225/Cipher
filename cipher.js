@@ -27,9 +27,9 @@ function encode(Text, ShiftNum)
                          newWord.push(aplhabetArrayShifted[j])
                          break
                     }
-                    else if(aplhabetArray[j] == wordLetters[x].toUpperCase())
+                    else if(aplhabetArray[j] == (wordLetters[x]).toUpperCase())
                     {
-                         newWord.push(aplhabetArrayShifted[j].toUpperCase())
+                         newWord.push((aplhabetArrayShifted[j]).toUpperCase())
                          break
                     }
                     else if(wordLetters[x] == "."){
@@ -85,7 +85,7 @@ function decode(Text, ShiftNum)
                     }
                          else if(aplhabetArray[j] == wordLetters[x].toUpperCase())
                     {
-                         newWord.push(aplhabetArrayShifted[j].toUpperCase())
+                         newWord.push((aplhabetArrayShifted[j]).toUpperCase())
                          break
                     }
                     else if(wordLetters[x] == "."){
